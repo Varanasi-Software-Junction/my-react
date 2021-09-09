@@ -1,10 +1,10 @@
 import './vsjitem.css';
-function VsjItem()
+function VsjItem(props)
 {
-	const message="Hello Varanasi Software Junction";
+	
 	return <p className="vsj">
 	
-	<h2>{message}</h2>
+	<h2>{props.message}</h2>
 	<img src='Varanasi Software Junction Phone Logo.png'/>
 	</p>;
 }
