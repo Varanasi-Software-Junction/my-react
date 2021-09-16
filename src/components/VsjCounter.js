@@ -3,7 +3,6 @@ import './vsjCounter.css'
 const  VsjCounter = (props) =>
 {
 	const [count, setCount] = useState(0);
-	const [a,b, setAdd] = useState(0,0);
 	return <p>
 	
 	<h2>Count = {count}</h2>
