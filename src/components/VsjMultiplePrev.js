@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-const VsjMultipleObject=()=>
+const VsjMultiplePrev=()=>
 {
 	const [
 	sumData, setSum] = useState({
@@ -11,9 +11,8 @@ const VsjMultipleObject=()=>
 	
 const sumN1=(event)=>
 {
-	setSum( {
-		...sumData,/*Get the previous data*/
-		n1:Number( event.target.value),
+	setSum( (prevState)=>{
+		return {...prevState,n1:Number(event.target.value)};
 		
 	});
 	console.log("Object Changed");
@@ -21,9 +20,8 @@ const sumN1=(event)=>
 };
 const sumN2=(event)=>
 {
-	setSum( {
-		...sumData,
-		n2:Number( event.target.value),
+	setSum( (prevState)=>{
+		return {...prevState,n2:Number(event.target.value)};
 		
 	});
 	console.log("Object Changed");
@@ -34,6 +32,7 @@ const sumN2=(event)=>
 
 	
 	return <form>
+	<h2>Prev</h2>
 	<label>N1</label>
 	<input type="text" onChange={sumN1}/>
 	
@@ -43,4 +42,4 @@ const sumN2=(event)=>
 		
 	</form>
 }
-export default VsjMultipleObject;
+export default VsjMultiplePrev;
