@@ -4,6 +4,7 @@ const  VsjExpenseCalculator = (props) =>
 {
 	const [
 	expenseData, setExpense] = useState({
+		id:Math.round(100000*Math.random()),
 		item:'',
 		amount:0,
 		tdate:''
@@ -30,7 +31,7 @@ const  VsjExpenseCalculator = (props) =>
 	const dateChangeHandler=(event)=>
 	{
 		setExpense( (prevState)=>{
-		return {...prevState,tdate:new Date(event.target.value)};
+		return {...prevState,tdate:event.target.value};
 		
 	});
 	console.log(expenseData);
