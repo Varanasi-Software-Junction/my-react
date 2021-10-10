@@ -39,6 +39,7 @@ const  VsjExpenseCalculator = (props) =>
 	{
 		event.preventDefault();
 		console.log("Submitted");
+		console.log(expenseData);
 		
 	};
 	
