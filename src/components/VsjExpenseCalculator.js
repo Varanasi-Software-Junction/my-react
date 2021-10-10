@@ -12,9 +12,32 @@ const  VsjExpenseCalculator = (props) =>
 	});
 	const itemChangeHandler=(event)=>
 	{
-		setExpense(event.target.value);
-		console.log(event.target.value);
+		setExpense( (prevState)=>{
+		return {...prevState,item:event.target.value};
+		
+	});
+	console.log(expenseData);
 	};
+	const amountChangeHandler=(event)=>
+	{
+		setExpense( (prevState)=>{
+		return {...prevState,amount:Number(event.target.value)};
+		
+	});
+	console.log(expenseData);
+	};
+	
+	const dateChangeHandler=(event)=>
+	{
+		setExpense( (prevState)=>{
+		return {...prevState,tdate:new Date(event.target.value)};
+		
+	});
+	console.log(expenseData);
+	};
+	
+	
+	
 	
 	return  <form>
   <div class="form-group">
@@ -23,11 +46,11 @@ const  VsjExpenseCalculator = (props) =>
   </div>
   <div class="form-group">
     <label for="amount">Amount</label>
-    <input type="number" class="form-control" placeholder="Enter Amount" id="amount"/>
+    <input type="number" class="form-control" placeholder="Enter Amount" id="amount" onChange={amountChangeHandler}/>
   </div>
   <div class="form-group">
     <label for="tdate">Date</label>
-    <input type="date" class="form-control" placeholder="Enter Date" id="tdate"/>
+    <input type="date" class="form-control" placeholder="Enter Date" id="tdate" onChange={dateChangeHandler}/>
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>;
