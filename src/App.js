@@ -1,24 +1,23 @@
 import logo from './logo.svg';
 import './App.css';
-import VsjForm from './components/VsjForm';
-import VsjMultipleObject from './components/VsjMultipleObject';
-import VsjMultiplePrev from './components/VsjMultiplePrev';
-import Addition from './components/Addition';
+import VsjExpenseCalculator from './components/VsjExpenseCalculator';
+
 
 function App() {
   return (
-    <div className="App">
-	<h1>Form</h1>
-	<VsjForm></VsjForm>
-	<h1>Using Objects</h1>
-	<VsjMultipleObject></VsjMultipleObject>
-	<VsjMultiplePrev/>
-	
-    <Addition></Addition>
-	
-	
-	
-    </div>
+   <div  class="container pt-5 bg-primary text-white text-center" id="root">
+   <div class="row">
+  <div class="col-sm-1"></div>
+  <div class="col-sm-10 bg-white">
+ <VsjExpenseCalculator></VsjExpenseCalculator>
+  
+  </div>
+  <div class="col-sm-1"></div>  
+   </div>
+   
+   
+   
+   </div>
   );
 }
 
