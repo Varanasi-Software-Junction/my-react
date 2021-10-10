@@ -40,6 +40,13 @@ const  VsjExpenseCalculator = (props) =>
 		event.preventDefault();
 		console.log("Submitted");
 		console.log(expenseData);
+		setExpense({
+		item:'',
+		amount:0,
+		tdate:''
+		
+		
+	});
 		
 	};
 	
@@ -49,15 +56,15 @@ const  VsjExpenseCalculator = (props) =>
 	return  <form onSubmit={submitHandler}>
   <div class="form-group">
     <label for="item">Item</label>
-    <input type="text" class="form-control" onChange={itemChangeHandler} placeholder="Enter Item" id="item"/>
+    <input type="text" class="form-control" value={expenseData.item} onChange={itemChangeHandler} placeholder="Enter Item" id="item"/>
   </div>
   <div class="form-group">
     <label for="amount">Amount</label>
-    <input type="number" class="form-control" placeholder="Enter Amount" id="amount" onChange={amountChangeHandler}/>
+    <input type="number" class="form-control" value={expenseData.amount} placeholder="Enter Amount" id="amount" onChange={amountChangeHandler}/>
   </div>
   <div class="form-group">
     <label for="tdate">Date</label>
-    <input type="date" class="form-control" placeholder="Enter Date" id="tdate" onChange={dateChangeHandler}/>
+    <input type="date" class="form-control" value={expenseData.tdate} placeholder="Enter Date" id="tdate" onChange={dateChangeHandler}/>
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>;
