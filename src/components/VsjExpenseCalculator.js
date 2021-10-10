@@ -35,11 +35,17 @@ const  VsjExpenseCalculator = (props) =>
 	});
 	console.log(expenseData);
 	};
+	const submitHandler=(event)=>
+	{
+		event.preventDefault();
+		console.log("Submitted");
+		
+	};
 	
 	
 	
 	
-	return  <form>
+	return  <form onSubmit={submitHandler}>
   <div class="form-group">
     <label for="item">Item</label>
     <input type="text" class="form-control" onChange={itemChangeHandler} placeholder="Enter Item" id="item"/>
