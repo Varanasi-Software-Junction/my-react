@@ -1,7 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
 import VsjExpenseCalculator from './components/VsjExpenseCalculator';
-
+import VsjExpense from './components/VsjExpense';
+import VsjWeather from './components/VsjWeather';
 
 function App() {
   return (
@@ -9,12 +10,14 @@ function App() {
    <div class="row">
   <div class="col-sm-1"></div>
   <div class="col-sm-10 bg-white">
- <VsjExpenseCalculator></VsjExpenseCalculator>
+  {/*<VsjExpenseCalculator></VsjExpenseCalculator>*/}
   
   </div>
   <div class="col-sm-1"></div>  
    </div>
-   
+   <br/>
+{/*<VsjExpense></VsjExpense>}*/}
+<VsjWeather></VsjWeather>
    
    
    </div>
