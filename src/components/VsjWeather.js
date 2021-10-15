@@ -31,7 +31,12 @@ function VsjWeather() {
   } else {
     return (
       <ul>
-        {items.cnt}
+	  <li>
+        {JSON.stringify(items.list[0].main)}
+		</li>
+		 <li>
+        {JSON.stringify(items.list[0].main.temp)}
+		</li>
       </ul>
     );
   }
