@@ -1,31 +1,52 @@
 import React, { useState, useEffect } from 'react';
+import { createStore, combineReducers } from 'redux';
+import { Provider } from 'react-redux';
 
+// Define the initial state of the application.
+const initialState = {
+  count: 0,
+};
 
-function App() {
-  // Declare a state variable called "count" with an initial value of 0
-  const [count, setCount] = useState(0);
+// Create a reducer that updates the application state in response to user actions.
+const reducer = (state, action) => {
+  switch (action.type) {
+    case 'INCREMENT':
+      return { ...state, count: state.count + 1 };
+    case 'DECREMENT':
+      return { ...state, count: state.count - 1 };
+    default:
+      return state;
+  }
+};
 
-  useEffect(() => {
-    document.title = `Count: ${count}`;
-  });
+// Create the Redux store.
+const store = createStore(reducer, initialState);
 
+// Create a React component that uses the Redux store.
+const App = () => {
+  const [count,setCount] = useState(store.getState().count);
+
+  // Handle theINCREMENT and DECREMENT actions.
   const increment = () => {
-    // Update the "count" state by 1
-    setCount(count + 1);
+    store.dispatch({ type: 'INCREMENT' });
   };
-
   const decrement = () => {
-    // Update the "count" state by -1
-    setCount(count - 1);
+    store.dispatch({ type: 'DECREMENT' });
   };
 
   return (
     <div>
-      <p>Count: {count}</p>
-      <button onClick={increment}>Increment</button>
-      <button onClick={decrement}>Decrement</button>
+      <button onClick={increment}>+</button>
+      <p>{count}</p>
+      <button onClick={decrement}>-</button>
     </div>
   );
-}
+};
 
-export default App;
+// Render the React application.
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root')
+);
