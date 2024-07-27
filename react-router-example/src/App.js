@@ -4,6 +4,7 @@ import Home from './Home';
 import About from './About';
 import Contact from './Contact';
 import Program from './Program';
+import Inside from './components/Inside';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           <ul>
             <li><Link to="/">Home</Link></li>
             <li><Link to="/about">About</Link></li>
+            <li><Link to="/components/inside">Inside</Link></li>
             <li><Link to="/contact">Contact</Link></li>
             <li><Link to="/program">Program</Link></li>
           </ul>
@@ -21,6 +23,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/program" element={<Program />} />
           <Route path="/about" element={<About />} />
+          <Route path="/components/inside" element={<Inside />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </div>
