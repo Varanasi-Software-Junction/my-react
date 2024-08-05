@@ -1,17 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import useToken from './useToken';
 
 function Logout() {
-  sessionStorage.clear();
-  
- 
+  const { clearToken } = useToken();
+  const navigate = useNavigate();
 
-  
-  return (
-    <div>
-      <h2>Logout</h2>
-      <p>Welcome to the Logout page!</p>
-    </div>
-  );
+  useEffect(() => {
+    clearToken();
+    navigate('/login'); // Redirect to the login page
+  }, [clearToken, navigate]);
+
+  return null; // Render nothing, just perform the side-effect
 }
 
 export default Logout;

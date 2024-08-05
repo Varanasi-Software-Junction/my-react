@@ -13,6 +13,11 @@ export default function useToken() {
     sessionStorage.setItem('token', JSON.stringify(userToken));
     setToken(userToken.token);
   };
+  const clearToken = userToken => {
+    sessionStorage.clear();
+    setToken(null);
+  };
+
 
   return {
     setToken: saveToken,
