@@ -1,33 +1,42 @@
-import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
-import Home from "../src/Home";
-import About from "../src/About";
+import React, { useState } from 'react';
+import Question from './components/Question';
+import Answer from './components/Answer';
+import Result from './components/Result';
+import questionsData from './data/questions.json';
+
 function App() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="about" element={<About />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
-  );
-  
-}
-export default App;
-function Layout() {
+  const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [score, setScore] = useState(0);
+  const [showResult, setShowResult] = useState(false);
+
+  const handleAnswerClick = (selectedAnswer) => {
+    // Check if the answer is correct and update score
+    if (selectedAnswer === questionsData[currentQuestion].correctAnswer) {
+      setScore(score + 1);
+    }
+
+    if (currentQuestion + 1 < questionsData.length) {
+      setCurrentQuestion(currentQuestion + 1);
+    } else {
+      setShowResult(true);
+    }
+  };
+
   return (
     <div>
-      <h1>Layout Website</h1>
-      <Outlet />
+      {showResult ? (
+        <Result score={score} totalQuestions={questionsData.length} />
+      ) : (
+        <div>
+          <Question
+            question={questionsData[currentQuestion].question}
+            options={questionsData[currentQuestion].options}
+          />
+          {/* Render answers here */}
+        </div>
+      )}
     </div>
   );
 }
 
-// function Home() {
-//   return <p>Welcome to my Home!</p>;
-// }
-
-// function About() {
-//   return <p>This is the about page.</p>;
-// }
+export default App;
