@@ -35,7 +35,7 @@ const InterestCalculator = () => {
             <h1>Time={time}</h1>
             <h1>Simple Interest ={si}</h1>
             <h1>Compound Interest ={ci}</h1>
-            <h1>{`SI=${(principal * rate * time)/100.0}`}</h1>
+            <h1>{`SI=${(principal * rate * time) / 100.0}`}</h1>
 
         </div>
 
